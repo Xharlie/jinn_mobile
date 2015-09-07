@@ -1,0 +1,78 @@
+<!doctype html>
+<html ng-app="Da" >
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <title>神灯客房服务</title>
+        <!--<link href="/public/Scripts/angular/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css" rel="stylesheet" />-->
+
+        <!-- Include the compiled Ratchet CSS -->
+        <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css">-->
+        <link href="/public/stylesheets/ratchet.css" rel="stylesheet">
+        <link href="/public/stylesheets/customized.css" rel="stylesheet">
+        <!--<link href="/public/stylesheets/style.css" rel="stylesheet">-->
+        <link href="/public/stylesheets/angular_animation.css" rel="stylesheet">
+    </head>
+    <body ng-controller="mainCTLR">
+        <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls)
+
+
+        -->
+        <div class="content animationStyle" id="contentViewport" style="overflow-y:scroll; width:100%;">
+            <div style="width:100%;height:100%" ng-view>
+            </div>
+        </div>
+
+
+        <!-- ------------------------------------ util js -------------------------------------- -->
+        <script src="/public/javascripts/pan_libs/basicUtil.js"></script>
+        <script src="/public/javascripts/pan_libs/serviceUtil.js"></script>
+        <script src="/public/javascripts/pan_libs/dateUtil.js"></script>
+        <script src="/public/javascripts/pan_libs/filters.js"></script>
+
+
+         <script src="/public/Scripts/jquery/jquery-1.11.2.js"></script>
+         <!--<script src="/public/Scripts/angular/angular_1.3.15/angular.min_1.3.15.js"></script>-->
+         <!--<script src="/public/Scripts/angular/angular_1.3.15/angular-route.min_1.3.15.js"></script>-->
+         <!--<script src="/public/Scripts/angular/angular_1.3.15/angular-animate_1.3.15.js"></script>-->
+         <!--<script src="/public/Scripts/angular/angular_1.3.15/angular-cookies.min.js"></script>-->
+         <!--<script src="/public/Scripts/angular/angular_1.3.15/angular-touch_1.3.15.min.js"></script>-->
+         <script src="/public/Scripts/angular/angular_1.4.1/angular.min.js"></script>
+         <script src="/public/Scripts/angular/angular_1.4.1/angular-route.min.js"></script>
+         <script src="/public/Scripts/angular/angular_1.4.1/angular-animate.min.js"></script>
+         <script src="/public/Scripts/angular/angular_1.4.1/angular-cookies.min.js"></script>
+         <script src="/public/Scripts/angular/angular_1.4.1/angular-touch.min.js"></script>
+
+        <script src="/public/Scripts/angular/ng_infinite_1.0.0.js"></script>
+
+            <!-- ------------------------------------ angular js module---------------------------------------- -->
+        <script src="/public/javascripts/AngularJS/mainModule.js"></script>
+
+        <!-- ------------------------------------ angular js controller---------------------------------------- -->
+        <script src="/public/javascripts/AngularJS/Controllers/comboListCTLR.js"></script>
+        <script src="/public/javascripts/AngularJS/Controllers/comboCTLR.js"></script>
+        <script src="/public/javascripts/AngularJS/Controllers/navbarCTLR.js"></script>
+        <script src="/public/javascripts/AngularJS/Controllers/serviceTypeListCTRL.js"></script>
+        <script src="/public/javascripts/AngularJS/Controllers/cartCTLR.js"></script>
+        <script src="/public/javascripts/AngularJS/Controllers/xlabelController.js"></script>
+        <script src="/public/javascripts/AngularJS/Controllers/mainCTLR.js"></script>
+        <script src="/public/javascripts/AngularJS/Controllers/receiverCTLR.js"></script>
+
+        <!-- ------------------------------------ angular js service---------------------------------------- -->
+
+        <script src="/public/javascripts/AngularJS/Services/serviceTypeFactory.js"></script>
+
+        <!-- ------------------------------------ angular js directives---------------------------------------- -->
+        <script src="/public/javascripts/AngularJS/Directives/renderLabel.js"></script>
+        <script src="/public/javascripts/AngularJS/Directives/xlabel.js"></script>
+
+        <script>
+            $("serviceTypeList").ready(function() {
+                $("#oneByOne").height($("#oneByOne").width());
+                $("#twoByOne").height($("#twoByOne").width()/2);
+                $("#contentViewport").height($(this).height());
+//                alert($("#contentViewport").height());
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<div id="cartOrderInfo">
+    <div>
+        <div ng-include="'/views/cart/serviceDetail.html' " ng-if="cmb.SRVC_TP_ID != '3' " ></div>
+        <div ng-include="'/views/cart/shipDetail.html'"     ng-if="cmb.SRVC_TP_ID == '3' " ></div>
+    </div>
+    <div class="info-payment">
+        <div class="input-group">
+            <div class="input-row" >
+                <label xlabel ng-transclude checker="isNotEmpty" checkee="orderInfo.RM_ID" btn-pass="infoError" >房间号:</label>
+                <input type="text" placeholder="请填写房间号" ng-model="orderInfo.RM_ID"
+                       ng-focus="$parent.action.eventAnalytics('cartOrderInfo','房间号');"/>
+            </div>
+        </div>
+        <ul class="table-view">
+            <li class="table-view-cell cell-symmetric">
+                <div class="row">支付方式</div>
+                <div class="row">
+                    <span ng-repeat="paymethod in paymethods">
+                        <button class="btn" ng-click="$parent.action.eventAnalytics('cartOrderInfo','paymethod'+paymethod.PAY_MTHD_NM);
+                        selectPayMethod(orderInfo.paymethodSelected,paymethod)"
+                                ng-class="paymethod.buttonClass">{{paymethod.PAY_MTHD_NM}}</button>
+                    </span>
+                </div>
+                <div class="row">
+                    <p class="text-gray text-md">
+                        {{orderInfo.paymethodSelected.PAY_MTHD_DSCRPT}}
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="info-price">
+        <ul class="table-view">
+            <li class="table-view-cell cell-symmetric">
+                <div>
+                    <label >商品总价:</label>
+                    <div class="pull-right text-brand">¥<label render-label bindee="Limit(orderInfo.payInDue)"></label></div>
+                </div>
+            </li>
+            <li class="table-view-cell cell-symmetric">
+                <div>
+                    <label >运费:</label>
+                    <div class="pull-right text-brand">¥<label >{{Limit(orderInfo.transFee)}}</label></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

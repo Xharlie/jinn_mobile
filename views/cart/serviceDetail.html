@@ -1,0 +1,21 @@
+<div id="cartCustInfo" ng-controller="serviceDetailCTLR">   <!--   id should be serviceDetail     -->
+    <form class="input-group">
+        <div class="input-row">
+            <label>服务数量:</label>
+            <input type="number" ng-model="$parent.cmb.AMNT"
+                   ng-change="$parent.action.eventAnalytics('serviceDetail','服务数量'); $parent.updatePayInDue();">
+        </div>
+        <div class="input-row">
+            <label>服务日期:</label>
+            <input type="date" ng-model="$parent.cmb.serviceDate" ng-change="$parent.action.eventAnalytics('serviceDetail','服务日期');"/>
+        </div>
+        <div class="input-row">
+            <label>服务时间:</label>
+            <input type="time" ng-model="$parent.cmb.serviceTime" ng-change="$parent.action.eventAnalytics('serviceDetail','服务时间');"/>
+        </div>
+        <div class="input-row">
+            <label>备注:</label>
+            <textarea ng-model="$parent.cmb.RMRK" ng-focus="$parent.action.eventAnalytics('serviceDetail','输入备注');"></textarea>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,26 @@
+<div id="cartProducts">
+    <div class="" style="padding-bottom:100px;">
+        <ul class="table-view" >
+            <li class="table-view-cell media cell-symmetric" ng-repeat="(ID, cmb) in cart">
+                <div ng-click="$parent.action.eventAnalytics('cartProducts','toComboInfo'+cmb.CMB_ID); toComboInfo(cmb)">
+                    <img class="media-object pull-left img-list" src={{'/public/images/combo/'+cmb.CMB_THMBNL}}>
+                    <div class="media-body">
+                        <div>
+                            <label class="text-lg">{{cmb.MRCHNT_NM}}</label>
+                            <label class="pull-right text-lg text-brand" style="font-size:1.25em;">¥{{cmb.CMB_PRC}}</label>
+                        </div>
+                        <div class="text-lg">{{cmb.CMB_NM}}</div>
+                        <div class="text-md text-gray-light">{{cmb.CMB_DSCRPT}}</div>
+                        <div>
+                            <label class="text-md">{{cmb.AMNT}}份</label>
+                            <label class="text-md">{{cmb.datePartChineseString}}{{cmb.timePartChineseString}}</label>
+                            <a ng-click="$parent.action.eventAnalytics('cartProducts','removeCmb'+cmb.CMB_ID); removeCmb(cmb)" class="pull-right">
+                                <span class="pull-right icon icon-trash text-gray-light" src="/public/images/general/trashCan.png"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

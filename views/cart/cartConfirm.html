@@ -1,0 +1,31 @@
+<div id="cartConfirm">
+    <ul class="table-view">
+        <li class="table-view-cell"><h3 class="text-brand"><span class="icon icon-check"></span>下单成功!</h3></li>
+        <li class="table-view-cell">
+            <div class="row" style="padding-left:24px;">交易号: {{orderInfo.tran_id}}</div>
+            <div class="row" style="padding-left:24px;">消费总计: {{orderInfo.payInTotal}}</div>
+            <div class="row" style="padding-left:24px;" ng-if="paymethodSelected.PAY_MTHD_NM=='酒店挂账'">挂账房间: {{orderInfo.RM_ID}}</div>
+        </li>
+    </ul>
+    <ul class="table-view content-margin-double card card-primary" ng-repeat = "cmb in cart">
+        <li class="table-view-cell cell-symmetric">
+            <label class="text-bold text-lg">订单号:{{cmb.ORDR_ID}}</label>
+            <label class="pull-right text-bold">¥{{(cmb.CMB_PRC + cmb.CMB_TRANS_PRC)*cmb.AMNT}}</label>
+        </li>
+        <li class="table-view-cell cell-symmetric">
+            <div class="text-bold row">
+                <label>{{cmb.CMB_NM}}</label>
+            </div>
+            <div>
+                <label class="text-md">{{cmb.datePartChineseString}}{{cmb.timePartChineseString}}</label>
+            </div>
+            <div>
+                <label class="text-md">数量:{{cmb.AMNT}}</label>
+                <label class="text-md">{{cmb.MRCHNT_NM}}</label>
+                <label class=" text-md pull-right">
+                    <span class="icon icon-star"></span>已预订
+                </label>
+            </div>
+        </li>
+    </ul>
+</div>

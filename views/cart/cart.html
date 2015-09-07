@@ -1,0 +1,34 @@
+<div id="shoppingCart" >
+    <header class="bar bar-nav">
+        <span ng-if="cartStage=='cartOrderInfo'" class="title">
+            <a class="pull-left">
+                <span class="icon icon-left-nav" ng-click="cancelOrder()" ></span>
+            </a>
+            <h1 class="title">信息填写</h1>
+        </span>
+        <span ng-if="cartStage=='cartConfirm'" class="title">
+            <h1 class="title">订单确认</h1>
+        </span>
+    </header>
+    <div class="content">
+        <div >
+            <div ng-include="'/views/cart/cartOrderInfo.html' " ng-show="cartStage=='cartOrderInfo' " ></div>
+            <div ng-include="'/views/cart/cartConfirm.html' " ng-if="cartStage=='cartConfirm' " ></div>
+        </div>
+    </div>
+    <nav class="bar bar-tab" >
+        <a ng-click="$parent.action.eventAnalytics('cartOrderInfo','确认订单'); submit();" ng-if="cartStage=='cartOrderInfo' " >
+            <div class="pull-left">
+                <p>确认支付:
+                <span><label render-label bindee="Limit(orderInfo.payInDue+orderInfo.transFee)"></label></span></p>
+            </div>
+            <button class="pull-right btn btn-primary" ng-class="cartButtonClass">
+                <span >确认订单</span>
+            </button>
+        </a>
+        <a ng-click="$parent.action.eventAnalytics('cartConfirm','返回服务列表'); cancelOrder();" ng-if="cartStage=='cartConfirm' " >
+            <button class=" pull-right btn btn-primary">返回服务列表</button>
+        </a>
+    </nav>
+</div>
+

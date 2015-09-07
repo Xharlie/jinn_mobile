@@ -1,0 +1,380 @@
+//Variables
+//------------------------------------
+
+$color-primary: #1B99FF;
+$color-secondary: #0875CE;
+$color-content-bkg: #F4f4f4;
+$color-tab: #454545;
+$color-text: #757575;
+
+$margin-content: 10px;
+$margin-content-half: $margin-content/2;
+$margin-content-double: $margin-content*2;
+
+
+//Hack to ios8 modal issue
+header.bar.bar-nav {
+  -webkit-transform: translateZ(0);
+}
+
+.hidden{
+	display: none;
+}
+
+
+//Overall
+//-----------------------------------
+
+.glow{
+	font-size: inherit;
+	transition:  1s;
+	-moz-transition:  1s; 
+	-webkit-transition:  1s; 
+	-o-transition:  1s;
+	}
+
+.content{
+	background-color: $color-content-bkg;
+	width: 100%;
+
+	ul,li{
+		list-style: none;
+	}
+}
+
+.content-margin{
+	overflow:hidden;
+	margin: $margin-content;
+}
+
+.content-margin-half{
+	overflow:hidden;
+	margin: $margin-content-half;
+}
+
+.content-margin-double{
+	overflow:hidden;
+	margin: $margin-content-double;
+}
+
+.row{
+	width:100%;
+	margin-top:8px;
+	margin-bottom: 8px;
+	overflow:hidden;
+}
+
+.dash{
+	width:100%;
+	margin-top:8px;
+	margin-bottom: 8px;
+	border-top: 2px dashed white;
+}
+
+//Options
+//-------------------------------------
+
+.option{
+	color: #428bca;
+	float: right;
+	margin-right: -50px;
+}
+
+//Btns
+//-------------------------------------
+
+.btn-primary{
+	color: #fff;
+	background-color:$color-primary;
+	border: none;
+}
+
+.btn-secondary{
+	color: #fff;
+	background-color:$color-secondary;
+	border: none;
+}
+
+.btn-buy{
+	border: none;
+	color:#fff;
+	background-color:#F76B1C;
+}
+
+.btn-disabled{
+	border: none;
+	color:#aaa;
+	background-color:#ccc;
+}
+
+.btn-check{
+	border: none;
+	color:#fff;
+	background-color:#ddd;
+}
+
+//Text
+//--------------------------------
+body{
+	color: $color-text;
+}
+
+.text-xs{
+	font-size: 0.7em;
+}
+
+.text-sm{
+	font-size:0.75em;
+}
+
+.text-md{
+	font-size:0.8em;
+}
+
+.text-lg{
+	font-size:0.9em;
+}
+
+.text-gray{
+	color:#bbb;
+}
+
+.text-gray-light{
+	color: #b5b5b5;
+}
+
+.text-brand{
+	color:$color-primary;
+}
+
+.text-alert{
+	color:red;
+}
+
+.text-crossed{
+	color:#b5b5b5;
+	text-decoration: line-through;
+}
+
+.text-bold{
+	font-weight: 600;
+}
+
+
+//Card
+//---------------------------
+
+.card{
+	border:none;
+	border-radius:0;
+	margin:$margin-content-half;
+}
+
+.card-primary{
+	color: white;
+	background-color: $color-primary;
+	.table-view-cell:first-child{
+		border-bottom: 1px dotted white;
+	}
+}
+
+
+//Box
+//----------------------------
+//The 2*1 boxes
+
+.box-view{
+	width: 100%;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	.box-view-cell{
+		overflow: hidden;
+		width: 50%;
+		border:5px solid $color-content-bkg;
+		float: left;
+		background-color: #fff;
+		position: relative;
+
+		img{
+			width: 100%;
+		}
+
+		a{
+			position: absolute;
+			color: #1B99FF;
+			top: 0;
+			z-index: 100;
+			width: 100%;
+			height: 100%;
+			padding: 10px;
+			font-size: 1em;
+
+			img{
+				width: 16%;
+			}
+		}
+
+	}
+}
+
+.box-list{
+	background-color: #fff;
+	padding: 10px;
+}
+
+
+//Table
+//--------------------------------
+//Style listed below overrides some provided in ratchet.css. 
+
+.table-view{
+	margin-bottom: $margin-content;
+
+	li{
+		.icon{
+			font-size: inherit;
+		}
+		border-color: #eee;
+	}
+}
+
+.table-text-group{
+	label{
+	  float: left;
+	  width: 35%;
+	  font-family: inherit;
+	}
+
+	span{
+	  margin-bottom: 0;
+	}
+}
+
+.cell-none{
+	padding: 0;
+}
+
+
+.cell-symmetric{
+	padding: 11px 15px;
+}
+
+.cell-dim{
+	background-color:#F6F6F6;
+}
+
+//Tag
+//--------------------------------
+.tag{
+	font-size: 0.6em;
+	padding:4px 8px;
+	border-radius: 20px;
+	vertical-align: middle;
+}
+
+.tag-brand{
+	color: white;
+	background-color: $color-primary;
+}
+
+.tag-alert{
+	color: white;
+	background-color: red;
+}
+
+//Bars
+//-----------------------------
+
+.bar .btn.pull-right {
+  margin-left: 0;
+}
+.bar .btn.pull-left {
+  margin-right: 0;
+}
+
+.bar-nav{
+	background-color: #232323;
+	
+	a{
+		color: #fff;
+	}
+	.title{
+		color: #fff;
+		font-weight: bold;
+	}
+}
+
+.bar-tab{
+	border:none;
+	background-color: #454545;
+	a{
+		overflow: hidden;
+		height: 50px;
+		width: 100%;
+		div{
+			height: 50px;
+			padding: 15px 15px;
+			p{
+				
+				font-size: 0.8em;
+				color: #fff;
+				margin-bottom: 0;
+			}
+
+		}
+	}
+
+	.btn{	
+		border: none;
+		top:0;
+		width: 30%;
+		height: 50px;
+		border-radius: 0;
+		margin: 0;
+	}
+
+}
+
+
+//Image
+//----------------------------------
+//Image styles
+
+.img-hero{
+	width:100%;
+}
+
+.img-list{
+	width: 50px;
+}
+
+
+//Input
+//--------------------------------
+//Input styles. Overrides some in "ratchet.css"
+.input-group{
+
+	.input-row{
+		height: auto;
+	}
+
+	select{
+		  font-size: inherit;
+		  background-color: transparent;
+		  height: auto;
+		  width: 65%;
+		  padding: 8px 0;
+		  margin: 0;
+		  border: none;
+		  box-shadow: none;
+		  -webkit-box-shadow: none;
+		}
+
+	textarea{
+		width: 65%;
+		border: none;
+		padding: 8px 0;
+	}
+}
+
