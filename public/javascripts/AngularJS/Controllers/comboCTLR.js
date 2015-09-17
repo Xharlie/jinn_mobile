@@ -2,7 +2,7 @@
  * Created by charlie on 8/2/15.
  */
 
-Da.controller('comboCTLR', function($scope, $location, $rootScope, hotelFactory, comboInfoFactory, userOrderFactory,$route){
+Da.controller('comboCTLR', function($scope, $location, $rootScope, hotelFactory, comboInfoFactory, userOrderFactory){
 
     /*------------------------------ page control --------------------------------*/
     $scope.pageChange = function(destination){
@@ -11,7 +11,7 @@ Da.controller('comboCTLR', function($scope, $location, $rootScope, hotelFactory,
 
     $scope.confirmCombo = function(){
         userOrderFactory.pushCart($scope.cmb);
-        $location.path('/cart/cart');
+        $location.path('/cart/cart/:'+$scope.cmb.CMB_ID.toString());
     }
 
     /*------------------------------- init function -------------------------------*/
@@ -22,9 +22,9 @@ Da.controller('comboCTLR', function($scope, $location, $rootScope, hotelFactory,
         comboInfoFactory.getTagsOfCmb('('+cmb.CMB_TAGS+')').success(function(data){
             $scope.Tags =data;
         });
-        hotelFactory.getHotelInfo(2).success(function(data){
-            $scope.hotel = data[0];
-        });
+        //hotelFactory.getHotelInfo(2).success(function(data){
+        //    $scope.hotel = data[0];
+        //});
         if(cmb.AMNT == null){
             cmb.AMNT = 1;
         }

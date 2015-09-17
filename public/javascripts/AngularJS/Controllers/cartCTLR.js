@@ -57,6 +57,10 @@ Da.controller('cartCTLR', function($scope, $http, $location, comboInfoFactory, u
             alert('请填写房间号');
             return;
         }
+        if(($scope.orderInfo.CUS_PHN == null || $scope.orderInfo.CUS_PHN == '')){
+            alert('请填写手机号');
+            return;
+        }
         var allCMB = [];
 
         for(var key in $scope.cart){
@@ -95,7 +99,7 @@ Da.controller('cartCTLR', function($scope, $http, $location, comboInfoFactory, u
         var tran = {
             HTL_ID: '2',
             TSTMP: dateUtil.tstmpFormat(new Date()),
-            CUS_PHN: null,
+            CUS_PHN: $scope.orderInfo.CUS_PHN.toString(),
             CUS_NM: null,
             PYMNT_TTL:$scope.orderInfo.payInDue+$scope.orderInfo.transFee,
             STATUS: '已下单',
@@ -175,14 +179,27 @@ Da.controller('cartCTLR', function($scope, $http, $location, comboInfoFactory, u
     }
 
     function getCart(){
-        $scope.cart = basicUtil.objDecode(userOrderFactory.getCart());
-        for(var key in $scope.cart){
-            $scope.cmb = $scope.cart[key];
-            break;
-        }
-        $scope.updatePayInDue();
+         //= basicUtil.objDecode(userOrderFactory.getCart());
+        var pathArray = window.location.href.split("/:");
+        var CMB_ID = pathArray[1];
+        comboInfoFactory.getSelectedCombo(CMB_ID).success(function(data){
+            if(Array.isArray(data)){
+                $scope.cmb = data[0];
+            }else{
+                $scope.cmb = data;
+            }
+            if($scope.cmb.AMNT == null){
+                $scope.cmb.AMNT = 1;
+            }
+            $scope.cmb.TKT_ID = $scope.cmb.CMB_ID.toString() + dateUtil.tstmpFormat(new Date());
+            $scope.cart = {};
+            $scope.cart[$scope.cmb.TKT_ID.toString()] =$scope.cmb;
+            $scope.updatePayInDue();
+            $scope.ready = true;
+        });
     }
     /***************************** -------------- init variable------------------- *******************/
+    $scope.ready = false;
     $scope.paymethods = [];
     $scope.success = false;
     $scope.cartStage = 'cartOrderInfo';
@@ -200,17 +217,18 @@ Da.controller('cartCTLR', function($scope, $http, $location, comboInfoFactory, u
 })
 
 
-Da.controller('serviceDetailCTLR', function($scope,orderDetailFactory,userOrderFactory) {
+Da.controller('serviceDetailCTLR', function($scope) {
     //$scope.confirmCombo = function(buyAtWill){
     //    $scope.$parent.cmb.datePartChineseString = dateUtil.dateChineseFormat($scope.$parent.cmb.serviceDate);
     //    $scope.$parent.cmb.timePartChineseString = dateUtil.timeChineseFormat($scope.$parent.cmb.serviceTime);
     //}
 
+    //show($scope.$parent.cmb)
     $scope.$parent.cmb.serviceDate = new Date(); //dateUtil.dateFormat(new Date());
     $scope.$parent.cmb.serviceTime = new Date(); //dateUtil.timeFormat(new Date());
 });
 
-Da.controller('shipDetailCTLR', function($scope,orderDetailFactory,userOrderFactory){
+Da.controller('shipDetailCTLR', function($scope,orderDetailFactory){
     /********************************************     validation     ***************************************************/
     $scope.hasError = function(btnPass){
         if(eval("$scope."+btnPass)==null) eval("$scope."+btnPass+"=0");

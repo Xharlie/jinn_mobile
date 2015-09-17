@@ -16,7 +16,7 @@ Da.config(['$routeProvider',function ($routeProvider){
             controller:'comboCTLR',
             templateUrl: '/views/combo.html'
         })
-        .when('/cart/cart',
+        .when('/cart/cart/:CMB_ID',
         {
             controller:'cartCTLR',
             templateUrl: '/views/cart/cart.html'

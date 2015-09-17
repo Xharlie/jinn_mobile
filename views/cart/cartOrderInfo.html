@@ -1,7 +1,7 @@
 <div id="cartOrderInfo">
     <div>
-        <div ng-include="'/views/cart/serviceDetail.html' " ng-if="cmb.SRVC_TP_ID != '3' " ></div>
-        <div ng-include="'/views/cart/shipDetail.html'"     ng-if="cmb.SRVC_TP_ID == '3' " ></div>
+        <div ng-include="'/views/cart/serviceDetail.html' " ng-if="cmb.SRVC_TP_ID != '3' && ready " ></div>
+        <div ng-include="'/views/cart/shipDetail.html'"     ng-if="cmb.SRVC_TP_ID == '3' && ready " ></div>
     </div>
     <div class="info-payment">
         <div class="input-group">
@@ -9,6 +9,13 @@
                 <label xlabel ng-transclude checker="isNotEmpty" checkee="orderInfo.RM_ID" btn-pass="infoError" >房间号:</label>
                 <input type="text" placeholder="请填写房间号" ng-model="orderInfo.RM_ID"
                        ng-focus="$parent.action.eventAnalytics('cartOrderInfo','房间号');"/>
+            </div>
+        </div>
+        <div class="input-group">
+            <div class="input-row" >
+                <label xlabel ng-transclude checker="isNotEmpty" checkee="orderInfo.CUS_PHN" btn-pass="infoError" >手机号:</label>
+                <input type="text" placeholder="请填写手机号" ng-model="orderInfo.CUS_PHN"
+                       ng-focus="$parent.action.eventAnalytics('cartOrderInfo','手机号');"/>
             </div>
         </div>
         <ul class="table-view">
