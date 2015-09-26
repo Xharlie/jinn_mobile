@@ -18,6 +18,7 @@ Da.controller('comboListCTLR', function($scope, $location, serviceTypeFactory, u
     //}
 
     $scope.toComboInfo = function(cmb){
+        if(cmb.CMB_STL_CLSS == 'card-disabled') return;
         $scope.$parent.info.cmbSelected = cmb;
         comboInfoFactory.pushSelectedCombo(cmb);
         $scope.$parent.info.page = 'comboInfo';
@@ -31,7 +32,7 @@ Da.controller('comboListCTLR', function($scope, $location, serviceTypeFactory, u
     $scope.animationStyle = 'slide';
     var pathArray = window.location.href.split("/:");
     var SRVC_TP_ID = pathArray[1];
-    $scope.$parent.init(2,SRVC_TP_ID);
+    $scope.$parent.init(1,SRVC_TP_ID);
     $scope.$parent.info.serviceTypeIDSelected = SRVC_TP_ID;
     $scope.$parent.info.page = 'comboList';
 });

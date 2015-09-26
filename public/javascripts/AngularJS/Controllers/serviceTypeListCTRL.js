@@ -12,7 +12,7 @@ Da.controller('serviceTypeListCTRL', function($scope, $location, $rootScope,serv
 
 
     function init(){
-        serviceTypeFactory.getAllCombos(2).success(function(data){
+        serviceTypeFactory.getAllCombos(1).success(function(data){
             if(Array.isArray(data)){
                 $scope.serviceTypes = serviceUtil.structuralize(data);
             }else{

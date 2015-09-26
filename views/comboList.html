@@ -7,7 +7,7 @@
     </header>
     <div class="content-margin-half">
         <ul class="box-view">
-            <li class="box-view-cell card-disabled" id="twoByThree" ng-repeat="cmb in $parent.combos" ng-click="toComboInfo(cmb)" >
+            <li class="box-view-cell " id="twoByThree" ng-class="cmb.CMB_STL_CLSS" ng-repeat="cmb in $parent.combos" ng-click="toComboInfo(cmb)" >
                 <script>
                     $("#twoByThree").height($("#twoByThree").width()*1.7);
                 </script>

@@ -74,7 +74,7 @@ Da.controller('mainCTLR', function($scope, $http, hotelFactory, serviceTypeFacto
     $scope.inCart={sumAmount:userOrderFactory.cartQuan()};
     $scope.combos = [];
     $scope.info ={serviceTypeIDSelected:null, cartOpen: false, cmbSelected:null, page:'ServiceTypeList'};
-    hotelFactory.setHotelInfo(2);
+    hotelFactory.setHotelInfo(1);
 
 });
 
