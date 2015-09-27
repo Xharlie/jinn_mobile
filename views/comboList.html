@@ -7,15 +7,15 @@
     </header>
     <div class="content-margin-half">
         <ul class="box-view">
-            <li class="box-view-cell " id="twoByThree" ng-class="cmb.CMB_STL_CLSS" ng-repeat="cmb in $parent.combos" ng-click="toComboInfo(cmb)" >
+            <li class="box-view-cell " id="twoByThree" ng-repeat="cmb in $parent.combos" ng-click="toComboInfo(cmb)" >
                 <script>
-                    $("#twoByThree").height($("#twoByThree").width()*1.7);
+                    $("#twoByThree").height($("#twoByThree").width()*1.6);
                 </script>
-                <div>
+                <div class="card" ng-class="cmb.CMB_STL_CLSS">
                     <img src={{'/public/images/combo/'+cmb.CMB_PIC}}>
                     <div class="content-margin">
                         <div><label class="text-sm text-gray">{{cmb.CMB_BRND}}</label></div>
-                        <div><label class="text-md">{{cmb.CMB_NM}}</label></div>
+                        <div><label class="text-md text-bold">{{cmb.CMB_NM}}</label></div>
                         <div>
                             <label class="text-lg text-brand">¥{{cmb.CMB_PRC}}元</label>
                             <label class="text-md text-crossed">¥{{cmb.CMB_ORGN_PRC}}元</label>

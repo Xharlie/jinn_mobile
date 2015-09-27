@@ -13,7 +13,8 @@ header.bar.bar-nav {
 
 .content {
   background-color: #F4f4f4;
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 50px; }
   .content ul, .content li {
     list-style: none; }
 
@@ -46,14 +47,17 @@ header.bar.bar-nav {
   float: right;
   margin-right: -50px; }
 
+.btn {
+  font-weight: bold !important; }
+
 .btn-primary {
-  color: #fff;
-  background-color: #1B99FF;
+  color: #666;
+  background-color: #EDD096;
   border: none; }
 
 .btn-secondary {
   color: #fff;
-  background-color: #0875CE;
+  background-color: #23253F;
   border: none; }
 
 .btn-buy {
@@ -93,7 +97,10 @@ body {
   color: #b5b5b5; }
 
 .text-brand {
-  color: #1B99FF; }
+  color: #474B78; }
+
+.text-secondary {
+  color: #23253F; }
 
 .text-alert {
   color: red; }
@@ -108,13 +115,21 @@ body {
 .card {
   border: none;
   border-radius: 0;
-  margin: 5px; }
+  margin: 0; }
 
 .card-primary {
   color: white;
-  background-color: #1B99FF; }
+  background-color: #EDD096; }
   .card-primary .table-view-cell:first-child {
     border-bottom: 1px dotted white; }
+
+.card-disabled {
+  background-color: white !important;
+  cursor: default; }
+
+.card {
+  width: 100%;
+  height: 100%; }
 
 .box-view {
   width: 100%;
@@ -172,16 +187,20 @@ body {
 .tag {
   font-size: 0.6em;
   padding: 4px 8px;
-  border-radius: 20px;
+  border-radius: 3px;
+  margin-top: -1px;
   vertical-align: middle; }
 
 .tag-brand {
   color: white;
-  background-color: #1B99FF; }
+  background-color: #EDD096; }
 
 .tag-alert {
   color: white;
-  background-color: red; }
+  background-color: #474B78; }
+
+.bar {
+  z-index: 101 !important; }
 
 .bar .btn.pull-right {
   margin-left: 0; }

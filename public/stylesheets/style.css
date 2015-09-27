@@ -10,12 +10,13 @@
 .card-disabled:hover {
     border: none !important; }
 .card-disabled:before {
-    height: 320px;
-    width: 100px;
-    content: "服务暂停";
+    height: 100%;
+    width: 100%;
+    content: "服务即将开通";
+    text-align: center;
     font-weight: bold;
     position: absolute;
     z-index: 100;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(35, 37, 63, 0.8);
     color: white;
-    padding: 40px 34px; }
+    padding-top: 40px; }

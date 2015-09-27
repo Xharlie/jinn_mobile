@@ -1,8 +1,9 @@
 //Variables
 //------------------------------------
 
-$color-primary: #1B99FF;
-$color-secondary: #0875CE;
+$color-primary: #EDD096;//#1B99FF;
+$color-secondary: #23253F;
+$color-tertiary: #474B78;
 $color-content-bkg: #F4f4f4;
 $color-tab: #454545;
 $color-text: #757575;
@@ -36,6 +37,7 @@ header.bar.bar-nav {
 .content{
 	background-color: $color-content-bkg;
 	width: 100%;
+	margin-bottom: 50px;
 
 	ul,li{
 		list-style: none;
@@ -83,8 +85,12 @@ header.bar.bar-nav {
 //Btns
 //-------------------------------------
 
+.btn{
+	font-weight: bold !important;
+}
+
 .btn-primary{
-	color: #fff;
+	color: #666;
 	background-color:$color-primary;
 	border: none;
 }
@@ -144,7 +150,11 @@ body{
 }
 
 .text-brand{
-	color:$color-primary;
+	color:$color-tertiary;
+}
+
+.text-secondary{
+	color:$color-secondary;
 }
 
 .text-alert{
@@ -167,7 +177,7 @@ body{
 .card{
 	border:none;
 	border-radius:0;
-	margin:$margin-content-half;
+	margin: 0;
 }
 
 .card-primary{
@@ -176,6 +186,16 @@ body{
 	.table-view-cell:first-child{
 		border-bottom: 1px dotted white;
 	}
+}
+
+.card-disabled{
+	background-color: white !important;
+    cursor: default;
+}
+
+.card{
+	width: 100%;
+	height: 100%;
 }
 
 
@@ -269,7 +289,8 @@ body{
 .tag{
 	font-size: 0.6em;
 	padding:4px 8px;
-	border-radius: 20px;
+	border-radius: 3px;
+	margin-top: -1px;
 	vertical-align: middle;
 }
 
@@ -280,11 +301,14 @@ body{
 
 .tag-alert{
 	color: white;
-	background-color: red;
+	background-color: $color-tertiary;
 }
 
 //Bars
 //-----------------------------
+.bar{
+	z-index: 101 !important;
+}
 
 .bar .btn.pull-right {
   margin-left: 0;
