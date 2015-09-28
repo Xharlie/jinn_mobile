@@ -5,11 +5,11 @@
             <input type="number" ng-model="$parent.cmb.AMNT"
                    ng-change="$parent.action.eventAnalytics('serviceDetail','服务数量'); $parent.updatePayInDue();">
         </div>
-        <div class="input-row">
+        <div class="input-row" hidden>
             <label>服务日期:</label>
             <input type="date" ng-model="$parent.cmb.serviceDate" ng-change="$parent.action.eventAnalytics('serviceDetail','服务日期');"/>
         </div>
-        <div class="input-row">
+        <div class="input-row" hidden>
             <label>服务时间:</label>
             <input type="time" ng-model="$parent.cmb.serviceTime" ng-change="$parent.action.eventAnalytics('serviceDetail','服务时间');"/>
         </div>
