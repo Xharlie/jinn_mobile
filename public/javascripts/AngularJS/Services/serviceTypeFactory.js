@@ -77,6 +77,7 @@ Da.factory('comboInfoFactory', function($http,$cookies){
             });
         },
         getTagsOfCmb: function(TagString){
+            if(TagString == '()') return serviceUtil.getter(null);
             return $http({
                 method: 'GET',
                 heasders: {'content-Type':'application/json'},

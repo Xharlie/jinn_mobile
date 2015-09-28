@@ -10,14 +10,18 @@ Da.controller('comboCTLR', function($scope, $location, $rootScope, hotelFactory,
     }
 
     $scope.confirmCombo = function(){
-        userOrderFactory.pushCart($scope.cmb);
+        //userOrderFactory.pushCart($scope.cmb);
         $location.path('/cart/cart/:'+$scope.cmb.CMB_ID.toString());
     }
 
     /*------------------------------- init function -------------------------------*/
     function init(cmb){
         comboInfoFactory.getMerchantInfoByCmb(cmb.CMB_ID).success(function(data){
-            $scope.Merchant =data[0];
+            if(data!=null){
+                $scope.Merchant =data[0];
+            }else{
+                $scope.Merchant = null;
+            }
         });
         comboInfoFactory.getTagsOfCmb('('+cmb.CMB_TAGS+')').success(function(data){
             $scope.Tags =data;

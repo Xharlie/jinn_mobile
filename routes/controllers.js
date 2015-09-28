@@ -11,6 +11,7 @@ var mysqlPool = pool.mysqlPool;
 var fs = require('fs');
 var msg = require('../msg/pianyunApi.js');
 var dateUtil = require('../util/dateUtil.js');
+var stringUtil = require('../util/stringUtil.js');
 
 /* GET home page. */
 
@@ -128,7 +129,7 @@ router
     })
     .get('/comboInfo/getMerchantInfoByCmb/:CMB_ID', function(req, res, next) {
         mysqlPoolValue('select * from Merchant_Combo_Mapping map '
-            + 'inner join Merchant_Info Mer on map.CMB_ID = '
+            + 'left join Merchant_Info Mer on map.CMB_ID = '
             + req.params.CMB_ID.toString() + ' and map.MRCHNT_ID = Mer.MRCHNT_ID'
             ,function(rows) {
                 res.send(rows);
@@ -168,35 +169,25 @@ router
                 //    +"希望您能继续关注" + "http://182.92.189.254:3000"+"    更多优品,更多惊喜:)"
                 //    ,info.CUS_PHN);
                 for(var i = 0; i < orders.length; i++){
-                    var info = orders[i];
+                    var info = stringUtil.objStringify(orders[i]);
+                    console.log(info);
+                    msg.yunpianMsg("【神灯客房】(单号:"+info.ORDR_ID+") "+info.HTL_NM+"酒店("+info.HTL_ID+"), "
+                    +info.RM_ID+"房间, 客人手机号:"+info.CUS_PHN+"; 于"+dateUtil.tstmpFormat(info.TSTMP)+"请求下单: 服务ID: "
+                    +info.CMB_ID+", 服务名称:" +info.CMB_NM+"; 数量: "+info.AMNT + ",服务时间:"+dateUtil.tstmpFormat(info.ORDR_TSTMP)
+                    +";商户ID:"+info.MRCHNT_ID+",商户名称:"+info.MRCHNT_NM+",商户电话"+info.MRCHNT_PHN+";",'18618148761,18092213579,18629088676');
 
+                    console.log("【神灯客房】(单号:"+info.ORDR_ID+") "+info.HTL_NM+"酒店("+info.HTL_ID+"), "
+                    +info.RM_ID+"房间, 客人手机号:"+info.CUS_PHN+"; 于"+dateUtil.tstmpFormat(info.ORDR_TSTMP)+"请求下单: 服务ID: "
+                    +info.CMB_ID+", 服务名称:" +info.CMB_NM+"; 数量: "+info.AMNT + ",服务时间:"+dateUtil.tstmpFormat(info.ORDR_TSTMP)
+                    +";商户ID:"+info.MRCHNT_ID+",商户名称:"+info.MRCHNT_NM+",商户电话"+info.MRCHNT_PHN+";");
 
-                    msg.yunpianMsg("【神灯客房】(单号:"+info.ORDR_ID.toString()+") "+info.HTL_NM.toString()+"酒店("+info.HTL_ID.toString()+"), "
-                    +info.RM_ID.toString()+"房间, 客人手机号:"+info.CUS_PHN.toString()+"; 于"+dateUtil.tstmpFormat(info.TSTMP)+"请求下单: 服务ID: "
-                    +info.CMB_ID.toString()+", 服务名称:" +info.CMB_NM.toString()+"; 数量: "+info.AMNT.toString() + ",服务时间:"+dateUtil.tstmpFormat(info.ORDR_TSTMP)
-                    +";商户ID:"+info.MRCHNT_ID.toString()+",商户名称:"+info.MRCHNT_NM.toString()+",商户电话"+info.MRCHNT_PHN.toString()+";",'18618148761,18092213579,18629088676');
+                    msg.yunpianMsg("【神灯客房】通知您在"+dateUtil.tstmpFormat(info.TSTMP)+"于"+info.HTL_NM+"酒店("+info.HTL_ID+"), "
+                    +info.RM_ID+"房间要求的"+info.CMB_NM+",数量: "+info.AMNT+",服务时间:"+dateUtil.tstmpFormat(info.ORDR_TSTMP)
+                    +"(单号:"+info.ORDR_ID+") 已经被系统接收",info.CUS_PHN);
 
-                    console.log("【神灯客房】(单号:"+info.ORDR_ID.toString()+") "+info.HTL_NM.toString()+"酒店("+info.HTL_ID.toString()+"), "
-                    +info.RM_ID.toString()+"房间, 客人手机号:"+info.CUS_PHN.toString()+"; 于"+dateUtil.tstmpFormat(info.ORDR_TSTMP)+"请求下单: 服务ID: "
-                    +info.CMB_ID.toString()+", 服务名称:" +info.CMB_NM.toString()+"; 数量: "+info.AMNT.toString() + ",服务时间:"+dateUtil.tstmpFormat(info.ORDR_TSTMP)
-                    +";商户ID:"+info.MRCHNT_ID.toString()+",商户名称:"+info.MRCHNT_NM.toString()+",商户电话"+info.MRCHNT_PHN.toString()+";");
-
-                    msg.yunpianMsg("【神灯客房】通知您在"+dateUtil.tstmpFormat(info.TSTMP)+"于"+info.HTL_NM+"酒店("+info.HTL_ID.toString()+"), "
-                    +info.RM_ID.toString()+"房间要求的"+info.CMB_NM+",数量: "+info.AMNT.toString()+",服务时间:"+dateUtil.tstmpFormat(info.ORDR_TSTMP)
-                    +"(单号:"+info.ORDR_ID.toString()+") 已经被系统接收",info.CUS_PHN.toString());
-
-                    console.log("【神灯客房】通知您在"+dateUtil.tstmpFormat(info.TSTMP)+"于"+info.HTL_NM+"酒店("+info.HTL_ID.toString()+"), "
-                    +info.RM_ID.toString()+"房间要求的"+info.CMB_NM+",数量: "+info.AMNT.toString()+",服务时间:"+dateUtil.tstmpFormat(info.ORDR_TSTMP)
-                    +"(单号:"+info.ORDR_ID.toString()+") 已经被系统接收");
-
-
-                    //msg.yunpianMsg("【斑鸠科技】(单号:"+info.ORDR_ID.toString()+") "+info.HTL_NM.toString()+"酒店("+info.HTL_ID.toString()+"), "
-                    //+info.RM_ID.toString()+"房间, 于"+dateUtil.tstmpFormat(info.ORDR_TSTMP)+"请求下单: 服务ID: "+info.CMB_ID.toString()+", 服务名称:"
-                    //+info.CMB_NM.toString()+"; 数量: "+info.AMNT.toString()+";",'18618148761,18092213579,18629088676');
-
-                    //console.log("【斑鸠科技】(单号:"+info.ORDR_ID.toString()+") "+info.HTL_NM.toString()+"酒店("+info.HTL_ID.toString()+"), "
-                    //+info.RM_ID.toString()+"房间, 于"+dateUtil.tstmpFormat(info.ORDR_TSTMP)+"请求下单: 服务ID: "+info.CMB_ID.toString()+", 服务名称:"
-                    //+info.CMB_NM.toString()+"; 数量: "+info.AMNT.toString()+";");
+                    console.log("【神灯客房】通知您在"+dateUtil.tstmpFormat(info.TSTMP)+"于"+info.HTL_NM+"酒店("+info.HTL_ID+"), "
+                    +info.RM_ID+"房间要求的"+info.CMB_NM+",数量: "+info.AMNT+",服务时间:"+dateUtil.tstmpFormat(info.ORDR_TSTMP)
+                    +"(单号:"+info.ORDR_ID+") 已经被系统接收");
 
 
                 }

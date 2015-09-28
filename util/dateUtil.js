@@ -7,6 +7,7 @@
 
 var dateUtil = {
     tstmpFormat: function (date) {
+        if(!(date instanceof Date)) return '';
         var YYYY = (date.getFullYear()).toString();
         var MM = (date.getMonth() + 1).toString();
         var DD = date.getDate().toString();
@@ -16,24 +17,28 @@ var dateUtil = {
         return (YYYY + "-" + (MM[1] ? MM : "0" + MM[0]) + "-" + (DD[1] ? DD : "0" + DD[0]) + " " + (hh[1] ? hh : "0" + hh[0]) + ":" + (mm[1] ? mm : "0" + mm[0]) + ":" + (ss[1] ? ss : "0" + ss[0]));
     },
     dateFormat: function (date) {
+        if(!(date instanceof Date)) return '';
         var YYYY = (date.getFullYear()).toString();
         var MM = (date.getMonth() + 1).toString();
         var DD = date.getDate().toString();
         return (YYYY + "-" + (MM[1] ? MM : "0" + MM[0]) + "-" + (DD[1] ? DD : "0" + DD[0]) );
     },
     timeFormat: function (date) {
+        if(!(date instanceof Date)) return '';
         var hh = (date.getHours()).toString();
         var mm = (date.getMinutes()).toString();
         var ss = (date.getSeconds()).toString();
         return ((hh[1] ? hh : "0" + hh[0]) + ":" + (mm[1] ? mm : "0" + mm[0]) + ":" + (ss[1] ? ss : "0" + ss[0]));
     },
     dateChineseFormat: function (date) {
+        if(!(date instanceof Date)) return '';
         var YYYY = (date.getFullYear()).toString();
         var MM = (date.getMonth() + 1).toString();
         var DD = date.getDate().toString();
         return (YYYY + "年" + (MM[1] ? MM : "0" + MM[0]) + "月" + (DD[1] ? DD : "0" + DD[0]) + '日' );
     },
     timeChineseFormat: function (date) {
+        if(!(date instanceof Date)) return '';
         var section = '上午';
         var hh = (date.getHours());
         var mm = (date.getMinutes()).toString();

@@ -20,7 +20,7 @@ Da.controller('comboListCTLR', function($scope, $location, serviceTypeFactory, u
     $scope.toComboInfo = function(cmb){
         if(cmb.CMB_STL_CLSS == 'card-disabled') return;
         $scope.$parent.info.cmbSelected = cmb;
-        comboInfoFactory.pushSelectedCombo(cmb);
+        //comboInfoFactory.pushSelectedCombo(cmb);
         $scope.$parent.info.page = 'comboInfo';
         $location.path('/combo/:'+cmb.CMB_ID.toString());
     }

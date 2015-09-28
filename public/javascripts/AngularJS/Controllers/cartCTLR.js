@@ -73,7 +73,7 @@ Da.controller('cartCTLR', function($scope, $http, $location, comboInfoFactory, u
                     null, //RCVR_NM,
                     null, //RCVR_PHN,
                     null, //RCVR_ADDRSS,
-                    '2', // HTL_ID
+                    HTL_ID,// , // HTL_ID
                     $scope.orderInfo.RM_ID, // RM_ID,
                     $scope.cart[key].TKT_ID, //TKT_ID
                     '已下单', // STATUS
@@ -88,7 +88,7 @@ Da.controller('cartCTLR', function($scope, $http, $location, comboInfoFactory, u
                     $scope.receiver.RCVR_NM, //RCVR_NM,
                     $scope.receiver.RCVR_PHN, //RCVR_PHN,
                     $scope.receiver.province + $scope.receiver.city + $scope.receiver.area + $scope.receiver.blockAddress, //RCVR_ADDRSS,
-                    '2', // HTL_ID
+                    HTL_ID, // HTL_ID
                     $scope.orderInfo.RM_ID, // RM_ID
                     $scope.cart[key].TKT_ID, //TKT_ID
                     '已下单', // STATUS
@@ -97,7 +97,7 @@ Da.controller('cartCTLR', function($scope, $http, $location, comboInfoFactory, u
             }
         }
         var tran = {
-            HTL_ID: '2',
+            HTL_ID: HTL_ID,
             TSTMP: dateUtil.tstmpFormat(new Date()),
             CUS_PHN: $scope.orderInfo.CUS_PHN.toString(),
             CUS_NM: null,
@@ -174,11 +174,17 @@ Da.controller('cartCTLR', function($scope, $http, $location, comboInfoFactory, u
             if(data.length ==0) return;
             $scope.paymethods = data;
             $scope.orderInfo.paymethodSelected = $scope.paymethods[0];
+            var allowedPayMethods =  $scope.cmb.CMB_PAY_MTHD.split(',');
+            for(var i = $scope.paymethods.length-1; i >= 0; i--){
+                if (allowedPayMethods.indexOf($scope.paymethods[i].PAY_MTHD_ID.toString())<0){
+                    $scope.paymethods.splice(i,1);
+                }
+            }
             paymethodsClass($scope.paymethods);
         });
     }
 
-    function getCart(){
+    function getCart(callBack){
          //= basicUtil.objDecode(userOrderFactory.getCart());
         var pathArray = window.location.href.split("/:");
         var CMB_ID = pathArray[1];
@@ -196,6 +202,7 @@ Da.controller('cartCTLR', function($scope, $http, $location, comboInfoFactory, u
             $scope.cart[$scope.cmb.TKT_ID.toString()] =$scope.cmb;
             $scope.updatePayInDue();
             $scope.ready = true;
+            callBack(HTL_ID);
         });
     }
     /***************************** -------------- init variable------------------- *******************/
@@ -212,8 +219,8 @@ Da.controller('cartCTLR', function($scope, $http, $location, comboInfoFactory, u
         payInDue: basicUtil.Limit($scope.calculatePay($scope.cart)),
         payInTotal: 0
     }
-    getPaymentMethods(2);
-    getCart();
+    var HTL_ID = '1';
+    getCart(getPaymentMethods);
 })
 
 
