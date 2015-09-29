@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2cfbe9d-0276-4b3a-b382-75248d29242f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/combo.html" afterPath="$PROJECT_DIR$/views/combo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/comboList.html" afterPath="$PROJECT_DIR$/views/comboList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="c2cfbe9d-0276-4b3a-b382-75248d29242f" name="Default" comment="" />
     <ignored path="jinn.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="combo.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="combo.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/combo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5488722" vertical-offset="235" max-vertical-offset="900">
-              <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+            <state vertical-scroll-proportion="-1.4705882" vertical-offset="0" max-vertical-offset="900">
+              <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -84,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="comboList.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="comboList.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/comboList.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.75" vertical-offset="0" max-vertical-offset="660">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5202312" vertical-offset="0" max-vertical-offset="692">
+              <caret line="24" column="56" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
               <folding>
                 <element signature="n#style#0;n#header#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -1015,16 +1011,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/comboList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.75" vertical-offset="0" max-vertical-offset="660">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#header#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.625" vertical-offset="0" max-vertical-offset="1260">
@@ -1049,9 +1035,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/combo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5488722" vertical-offset="235" max-vertical-offset="900">
-          <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+        <state vertical-scroll-proportion="-1.4705882" vertical-offset="0" max-vertical-offset="900">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/comboList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5202312" vertical-offset="0" max-vertical-offset="692">
+          <caret line="24" column="56" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+          <folding>
+            <element signature="n#style#0;n#header#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
