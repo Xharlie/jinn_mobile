@@ -48,6 +48,9 @@
             <label class="text-md">联系电话: </label>
             <span class="text-md">{{Merchant.MRCHNT_PHN}}</span>
         </li>
+        <li class="table-view-cell cell-symmetric table-text-group">
+            <span class="text-md">下单提示:  {{cmb.CMB_CLCK_RMRK}}</span>
+        </li>
     </ul>
     <button class="btn-block btn-primary"
             ng-click="$parent.action.eventAnalytics('comboInfo','立即下单');

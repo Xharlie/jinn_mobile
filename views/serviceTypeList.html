@@ -8,6 +8,12 @@
     <div class="card card-item" style="background-color: white;color: #bcbcbc;padding: 15px;">
         <span>您也可使用内线电话拨打号码9下单</span>
     </div>
+    <div class="card card-item" >
+        <a  href="{{$location.protocol()}}{{$location.host()}}/#/combo/:1">
+            <img src= {{'/public/images/service/特惠.jpg'}} id="twoByOne"
+                 width="100%">
+        </a>
+    </div>
     <div class="card card-item"
          ng-repeat = "(ID,service) in serviceTypes " >
         <a  ng-click="selectServiceType(ID)">
