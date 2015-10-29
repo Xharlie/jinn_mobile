@@ -35,10 +35,10 @@ Da.controller('comboCTLR', function($scope, $location, $rootScope, hotelFactory,
         cmb.TKT_ID = cmb.CMB_ID.toString() + dateUtil.tstmpFormat(new Date());
     };
     /* -------------- init variable------------------- */
-    if($scope.$parent.info.cmbSelected != null){
-        $scope.cmb = $scope.$parent.info.cmbSelected;
-        init($scope.cmb);
-    }else{
+    //if($scope.$parent.info.cmbSelected != null){
+    //    $scope.cmb = $scope.$parent.info.cmbSelected;
+    //    init($scope.cmb);
+    //}else{
         var pathArray = window.location.href.split("/:");
         var CMB_ID = pathArray[1];
         comboInfoFactory.getSelectedCombo(CMB_ID).success(function(data){
@@ -50,7 +50,7 @@ Da.controller('comboCTLR', function($scope, $location, $rootScope, hotelFactory,
             $scope.$parent.info.cmbSelected = $scope.cmb ;
             init($scope.cmb);
         });
-    }
+    //}
     $scope.limitArray = basicUtil.getTuple(1,51);
     $scope.$parent.info.page = 'comboInfo';  // to tell outer nav bar to dispatch
 });
