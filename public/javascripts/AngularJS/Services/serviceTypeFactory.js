@@ -50,11 +50,11 @@ Da.factory('serviceTypeFactory', function($http){
             }
         },
         getCombos: function(HTL_ID, SRVC_TP_ID){
-            if(combos != null){
-                var comboInSrv = {};
-                comboInSrv[SRVC_TP_ID] = combos[SRVC_TP_ID]
-                return serviceUtil.getter(comboInSrv);
-            }else{
+            //if(combos != null){
+            //    var comboInSrv = {};
+            //    comboInSrv[SRVC_TP_ID] = combos[SRVC_TP_ID];
+            //    return serviceUtil.getter(comboInSrv);
+            //}else{
                 return $http({
                     method: 'GET',
                     heasders: {'content-Type':'application/json'},
@@ -62,7 +62,7 @@ Da.factory('serviceTypeFactory', function($http){
                 }).success(function(data){
                     combos = serviceUtil.structuralize(data);
                 });
-            }
+            //}
         }
     }
 });
