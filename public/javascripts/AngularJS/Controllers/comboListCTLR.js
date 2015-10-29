@@ -30,7 +30,7 @@ Da.controller('comboListCTLR', function($scope, $location, serviceTypeFactory, u
 
     /* -------------- init variable------------------- */
     $scope.animationStyle = 'slide';
-    var pathArray = window.location.href.split("/:");
+    var pathArray = $location.absUrl().split("/:");
     var SRVC_TP_ID = pathArray[1];
     $scope.$parent.action.init(1,SRVC_TP_ID);
     $scope.$parent.info.serviceTypeIDSelected = SRVC_TP_ID;

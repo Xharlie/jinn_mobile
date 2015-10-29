@@ -53,11 +53,12 @@ Da.controller('mainCTLR', function($scope, $http, hotelFactory, serviceTypeFacto
             serviceTypeFactory.getCombos(HTL_ID, SRVC_TP_ID).success(function(data){
                 if(Array.isArray(data)){
                     $scope.info.combos = (serviceUtil.structuralize(data))[SRVC_TP_ID];
+
                 }else{
                     $scope.info.combos = data[SRVC_TP_ID];
                 }
                 $scope.title=$scope.info.combos[0].SRVC_TP_NM;
-                for (var i = 0; i < $scope.combos.length; i++ ){
+                for (var i = 0; i < $scope.info.combos.length; i++ ){
                     if($scope.info.combos[i].CMB_ID in userOrderFactory.getCart()){
                         $scope.info.combos[i].selected = 'T';
                         $scope.info.combos[i].backStyle ={'background-color':'#EEE'};
